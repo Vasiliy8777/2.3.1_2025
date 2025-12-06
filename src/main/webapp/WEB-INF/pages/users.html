@@ -62,7 +62,7 @@
                 <button type="submit">Delete</button>
             </form>
             <button type="button"
-                    th:onclick="'EditForm(' + ${user.id} + ')'">
+                    th:onclick="'editForm(' + ${user.id} + ')'">
                 Update
             </button>
 
@@ -92,7 +92,7 @@
                 <button type="submit">Сохранить</button>
                 <button type="button"
                         style="margin-left:10px;"
-                        th:onclick="'EditForm(' + ${user.id} + ')'">
+                        th:onclick="'editForm(' + ${user.id} + ')'">
                     Отмена
                 </button>
             </form>
@@ -136,7 +136,7 @@
         form.style.display = form.style.display === "none" ? "block" : "none";
     }
 
-    function EditForm(id) {
+    function editForm(id) {
         let row = document.getElementById("editForm-" + id);
         if (row.style.display === "none" || row.style.display === "") {
             row.style.display = "table-row";

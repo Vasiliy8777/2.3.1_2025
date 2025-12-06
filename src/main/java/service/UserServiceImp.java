@@ -19,20 +19,20 @@ public class UserServiceImp implements UserService {
 
     @Override
     @Transactional
-    public void add(User user) {
-        userDao.add(user);
+    public void addUser(User user) {
+        userDao.addUser(user);
     }
 
     @Override
     @Transactional
-    public void del(long id) {
-        userDao.del(id);
+    public void removeUser(long id) {
+        userDao.deleteUser(id);
     }
 
     @Override
     @Transactional
-    public void update(long id, String firstname, String lastName, String email) {
-        userDao.update(id, firstname, lastName, email);
+    public void updateUser(long id, String firstname, String lastName, String email) {
+        userDao.updateUser(id, firstname, lastName, email);
     }
 
     @Transactional(readOnly = true)
@@ -43,12 +43,12 @@ public class UserServiceImp implements UserService {
 
     @Override
     @Transactional
-    public void init() {
+    public void initUsers() {
         if (userDao.listUsers().isEmpty()) {
-            userDao.add(new User("User1", "Lastname1", "user1@mail.ru"));
-            userDao.add(new User("User2", "Lastname2", "user2@mail.ru"));
-            userDao.add(new User("User3", "Lastname3", "user3@mail.ru"));
-            userDao.add(new User("User4", "Lastname4", "user4@mail.ru"));
+            userDao.addUser(new User("User1", "Lastname1", "user1@mail.ru"));
+            userDao.addUser(new User("User2", "Lastname2", "user2@mail.ru"));
+            userDao.addUser(new User("User3", "Lastname3", "user3@mail.ru"));
+            userDao.addUser(new User("User4", "Lastname4", "user4@mail.ru"));
         }
     }
 

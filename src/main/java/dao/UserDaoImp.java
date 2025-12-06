@@ -15,12 +15,12 @@ public class UserDaoImp implements UserDao {
 
 
     @Override
-    public void add(User user) {
+    public void addUser(User user) {
         entityManager.persist(user);
     }
 
     @Override
-    public void del(long id) {
+    public void deleteUser(long id) {
         User user = entityManager.find(User.class, id);
         if (user != null) {
             entityManager.remove(user);
@@ -28,10 +28,10 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void update(long id, String firstname, String lastName, String email) {
-        entityManager.find(User.class, id).setFirstName(firstname);
-        entityManager.find(User.class, id).setLastName(lastName);
-        entityManager.find(User.class, id).setEmail(email);
+    public void updateUser(long id, String firstname, String lastName, String email) {
+        User user = new User(firstname, lastName, email);
+        user.setId(id);
+        entityManager.merge(user);
 
     }
 
