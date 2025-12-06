@@ -45,10 +45,10 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public String update(@RequestParam(value = "id") Long id,
-                         @RequestParam(value = "firstName") String firstname,
-                         @RequestParam(value = "lastName") String lastName,
-                         @RequestParam(value = "email") String email) {
+    public String updateUser(@RequestParam(value = "id") Long id,
+                             @RequestParam(value = "firstName") String firstname,
+                             @RequestParam(value = "lastName") String lastName,
+                             @RequestParam(value = "email") String email) {
         userService.updateUser(id, firstname, lastName, email);
         return "redirect:/users";
     }
